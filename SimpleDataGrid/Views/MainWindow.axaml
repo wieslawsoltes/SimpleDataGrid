@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SimpleDataGrid.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SimpleDataGrid.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SimpleDataGrid">
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <DockPanel Grid.IsSharedSizeScope="True" 
+             Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+
+    <Grid DockPanel.Dock="Top"
+          Margin="{DynamicResource ListBoxItemPadding}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="100" SharedSizeGroup="Column0" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" MinWidth="100" SharedSizeGroup="Column3" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Grid.Column="0" Text="Header0" Background="Transparent" />
+      <TextBlock Grid.Column="1" Text="Header1" Background="Transparent" />
+      <TextBlock Grid.Column="2" Text="Header3" Background="Transparent" />
+      <TextBlock Grid.Column="3" Text="Header3" Background="Transparent" />
+    </Grid>
+
+    <Separator Height="0.5" 
+               Margin="0"
+               HorizontalAlignment="Stretch"
+               DockPanel.Dock="Top"/>
+
+    <ListBox ItemsSource="{Binding Items}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="100" SharedSizeGroup="Column0" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" MinWidth="100" SharedSizeGroup="Column3" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Item0}" Background="Transparent" />
+            <TextBlock Grid.Column="1" Text="{Binding Item1}" Background="Transparent" />
+            <TextBlock Grid.Column="2" Text="{Binding Item2}" Background="Transparent" />
+            <TextBlock Grid.Column="3" Text="{Binding Item3}" Background="Transparent" />
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+
+  </DockPanel>
+
+</Window>
