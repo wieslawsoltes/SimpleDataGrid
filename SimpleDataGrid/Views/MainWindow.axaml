@@ -38,7 +38,7 @@
     <ListBox ItemsSource="{Binding Items}">
       <ListBox.ItemTemplate>
         <DataTemplate>
-          <Grid DockPanel.Dock="Top">
+          <Grid DockPanel.Dock="Top" Height="{Binding Height}">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="100" SharedSizeGroup="Column0" />
               <ColumnDefinition Width="*" />
