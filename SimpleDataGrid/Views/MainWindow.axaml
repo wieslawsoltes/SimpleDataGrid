@@ -36,9 +36,28 @@
                DockPanel.Dock="Top"/>
 
     <ListBox ItemsSource="{Binding Items}">
+      <ListBox.ItemContainerTheme>
+        <ControlTheme TargetType="ListBoxItem" 
+                      BasedOn="{StaticResource {x:Type ListBoxItem}}">
+          <Setter Property="Template">
+            <ControlTemplate>
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Padding="{TemplateBinding Padding}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </ListBox.ItemContainerTheme>
       <ListBox.ItemTemplate>
         <DataTemplate>
-          <Grid DockPanel.Dock="Top" Height="{Binding Height}">
+          <Grid Height="{Binding Height}">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="100" SharedSizeGroup="Column0" />
               <ColumnDefinition Width="*" />
